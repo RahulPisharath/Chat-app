@@ -4,9 +4,6 @@ const base_url = "https://fakestoreapi.com/products";
 
 const Searchquery = () => {
   const [todos, setTodos] = useState([]);
-  const [text, setText] = useState();
-  const [typewritertext, setTypewriterText] = useState();
-
   const [search, setSearch] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -23,12 +20,9 @@ const Searchquery = () => {
     try {
       const response = await fetch(base_url);
       const data = await response.json();
-
       setTodos(Array.from(data)[4]);
-
-      const abc = data[0].description;
-
-      console.log(abc);
+      // const abc = data[0].description;
+      // console.log(abc);
       if (response.ok) {
         setLoading(false);
       }
