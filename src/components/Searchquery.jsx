@@ -1,22 +1,37 @@
 import React, { useState, useEffect } from "react";
 
-const base_url = "https://jsonplaceholder.typicode.com/todos";
+const base_url = "https://fakestoreapi.com/products";
 
 const Searchquery = () => {
   const [todos, setTodos] = useState([]);
+  const [text, setText] = useState();
+  const [typewritertext, setTypewriterText] = useState();
+
+  const [search, setSearch] = useState([]);
   const [loading, setLoading] = useState(false);
-  // const query =  document.getElementById('search').value;
 
   useEffect(() => {
     console.log("UseEffect Calling !!!");
   }, []);
 
+  const handleChange = (event) => {
+    setSearch(event.target.value);
+    console.log("value is:", event.target.value);
+  };
+
   async function fetchTodos() {
     try {
       const response = await fetch(base_url);
       const data = await response.json();
-      console.log(Array.from(data)[0]);
-      setTodos(Array.from(data)[0]);
+
+      setTodos(Array.from(data)[4]);
+
+      const abc = data[0].description;
+
+      console.log(abc);
+      if (response.ok) {
+        setLoading(false);
+      }
     } catch (error) {
       console.log(error);
     }
@@ -28,12 +43,12 @@ const Searchquery = () => {
         <div className="query_items">
           <ul className="query_listing_ul" key={todos.id}>
             <li className="query_q">
-              <div className="results"> Searchquery </div>
+              <div className="results "> Searh Question </div>
             </li>
             <li className="query_a output">
               <div className="results">
-                <code>{todos.title}</code>
-                <p> {todos.completed ? "Yes" : ""}</p>
+                <p className="typewriter">{todos.title}</p>
+                <p>{todos.completed ? "Yes" : ""}</p>
               </div>
             </li>
           </ul>
@@ -50,7 +65,7 @@ const Searchquery = () => {
               </div>
             </div>
           ) : (
-            <>Hi</>
+            <></>
           )}
           <input
             id="search"
@@ -58,12 +73,15 @@ const Searchquery = () => {
             className="input_field"
             type="text"
             placeholder="Enter Your Query Here..."
+            onChange={handleChange}
+            defaultValue={search}
           />
           <button
             className="btn btn_send"
             type="button"
             onClick={() => {
-              console.log("OnClickButton !!!");
+              setLoading(true);
+              console.log("OnCickButton !!!");
               fetchTodos();
             }}
           >
