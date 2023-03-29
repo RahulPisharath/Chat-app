@@ -1,0 +1,264 @@
+.App {
+  padding-left: var(--sidebar-width);
+}
+
+.Header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--base-font-color);
+}
+
+.box_content {
+  display: block;
+  width: 100px;
+  height: 30px;
+  margin: 0px auto;
+}
+
+.sidebar {
+  position: fixed;
+  width: var(--sidebar-width);
+  background: var( --black);
+  z-index: 12;
+  left: 0px;
+  top: 0px;
+  height: 100%;
+  border-right:1px solid var(--border-black);
+}
+
+.sidebar_Logo {
+  height: 54px;
+  text-align: center;
+  padding: 12px;
+  border-bottom: 1px solid var(--border-black);
+}
+.sidebar_Logo a {
+  display: block;
+  width: 50px;
+  height: 50px;
+  margin: 0px auto;
+}
+.sidebar_Logo a svg {
+  width:100%;
+  height: 100%;
+}
+
+.sidebar_query_ul>li {
+  padding: 14px 12px;
+  transition: all .5s ease-in-out;
+}
+
+.sidebar_query_ul>li>a {
+  display: block;
+  color: var(--white);
+  text-decoration: none;
+  display: block;
+  font-size: var(--link-text-font);
+}
+
+.sidebar_query_ul>li:hover {
+  background-color: #00464a;
+}
+
+.sidebar_query_ul>li:hover a {
+  color: var(--white);
+}
+
+.search_field {
+  width: 85%;
+  margin: 0px auto;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.input_field {
+  border: none;
+  background: #EEE;
+  padding: 12px;
+  width: 100%;
+  border-radius: 5px;
+  border: 2px solid var(--border-black);
+  font-family: var(--theme-base-font);
+}
+
+.input_field:focus,
+.btn:focus {
+  outline: none;
+}
+
+.btn {
+  border: none;
+  cursor: pointer;
+}
+
+.btn_send {
+  font-size: 0px;
+  width: 20px;
+  padding: 5px;
+  box-sizing: content-box;
+  position: absolute;
+  right: 5px;
+  top: 6px;
+  border-radius: 5px;
+  height: 20px;
+}
+
+.btn_send:hover {
+  background: var(--sidebar-bg);
+}
+
+.icon_send {
+  background-size: 15px 15px;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.icon_send svg {
+  width: 100%;
+  height: 100%;
+}
+
+.btn_send:hover .icon_send svg path {
+  stroke: #FFF;
+}
+
+.content_wrapper {
+  padding: 22px 0px;
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 44px);
+  justify-content: space-between;
+}
+
+.Search_queries {
+  color: var(--base-font-color);
+  height: 100%;
+  display: flex;
+  align-content: space-between;
+  flex-direction: column;
+}
+
+.query_items {
+  height: calc(100% - 100px);
+  overflow-y: auto;
+  margin-bottom: 54px;
+}
+
+.chat_wrapper {
+  display: inline-flex;
+  margin: 10px 0px;
+  position: absolute;
+  top: -50px;
+  right: 0px;
+  display: none;
+}
+
+.chat_container {
+  display: inline-block;
+  background: var(--sidebar-bg);
+  padding: 0px 12px 8px 12px;
+  border-radius: 18px 18px 0px 18px;
+}
+
+.chat_container_swing_balls {
+  margin: 0px;
+}
+
+.chat_container_swing_balls span {
+  width: 8px;
+  height: 8px;
+  background-color: #FFF;
+  display: inline-block;
+  margin: 1px;
+  border-radius: 50%;
+}
+
+.chat_container_swing_balls span:nth-child(1) {
+  animation: tp-bounce 1s infinite;
+}
+
+.chat_container_swing_balls span:nth-child(2) {
+  animation: tp-bounce 1s infinite 0.2s;
+}
+
+.chat_container_swing_balls span:nth-child(3) {
+  animation: tp-bounce 1s infinite 0.4s;
+}
+
+code {
+  border-right: .15em solid #FFF;
+  animation: typing 3.5s steps(30, end),
+  blink-caret .5s step-end infinite;
+}
+
+.query_listing_ul {
+  margin-bottom: 20px;
+}
+
+.query_listing_ul li {
+  margin: 5px 0px;
+  color:var(--white);
+
+  padding:15px 82px;
+}
+.query_listing_ul li .results {
+  position: relative;
+  padding:8px 0px 0px 45px;
+}
+.query_listing_ul li .results:before{
+  content:'';
+  position: absolute;
+  left:0px;
+  top:0px;
+  width: 30px;
+  height: 30px;
+  border-radius: 2px;
+ 
+}
+.query_listing_ul li.query_q {
+  font-weight: 700;
+  font-size: 14px;
+}
+.query_listing_ul li.query_q .results:before {
+  background:#95a3a3;
+}
+.query_listing_ul li.query_a .results{
+  font-family: monospace;
+  color: var(--white);
+  font-size: 12px;
+}
+.query_listing_ul li.query_a .results:before{
+  background: url("../src/assets/icons/logo-cora.svg") no-repeat center center var(--sidebar-bg);
+  background-size: 68%;
+}
+.query_listing_ul li.output {}
+
+@keyframes tp-bounce {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(5px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #FFF }
+}

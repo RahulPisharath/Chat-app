@@ -1,0 +1,57 @@
+@font-face {
+  font-family: FortBold;
+  font-display: swap;
+  src: url(./assets/fonts/Fort-Bold.woff2) format("woff2");
+  font-weight: 700;
+  font-style: italic
+}
+@font-face {
+  font-family: FortBook;
+  font-display: swap;
+  src: url(./assets/fonts/Fort-Book.woff2) format("woff2");
+  font-weight: 900;
+  font-style: italic
+}
+@font-face {
+  font-family: FortLight;
+  font-display: swap;
+  src: url(./assets/fonts/Fort-Light.woff2) format("woff2");
+  font-weight: 400;
+  font-style: italic
+}
+:root {
+ --theme-base-font: FortLight, sans-serif !important;
+ --body-bg:#ecece1;
+ --base-font-size:18px;
+ --base-font-color:#1b2228;
+ --sidebar-bg:#006e74;
+ --sidebar-width:230px;
+ --white:#FFF;
+ --link-text-font:14px;
+ --border-line:#0097ac;
+ --black:#000;
+ --border-black:#424242;
+}
+
+html,body,#root,.App{
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: var(--theme-base-font);
+  font-size: var(--base-font-size);
+  background:var(--base-font-color);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+ul,li{
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
