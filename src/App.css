@@ -261,3 +261,32 @@ code {
   from, to { border-color: transparent }
   50% { border-color: #FFF }
 }
+
+/* Animation */
+.anim-typewriter{
+  animation: typewriter 4s steps(44) 1s 1 normal both,
+             blinkTextCursor 500ms steps(44) infinite normal;
+}
+.typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  display: inline-block;
+  position: relative;
+  animation: typing;
+  animation-duration: 20s;
+  animation-timing-function: steps(25, end);
+  animation-iteration-count: 1;
+  margin:0px;
+}
+.typewriter:after{
+  /* content:'';
+  position: absolute;
+  right:0px;
+  width: 2px;
+  height: 100%;
+  background: #FFF;
+  animation: blink-caret;
+  animation-duration: 20s;
+  animation-timing-function: steps(25, end);
+  animation-iteration-count: infinite; */
+}
