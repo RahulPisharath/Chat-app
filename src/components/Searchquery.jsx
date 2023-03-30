@@ -1,28 +1,28 @@
 import React, { useState, useEffect } from "react";
-
+import Loader from "../components/Loader";
+import Chat from "../components/Chat";
 
 const base_url = "https://jsonplaceholder.typicode.com/users/";
+
 const Searchquery = () => {
 
-  const [chat, setchat] = useState([]);
-  const [search, setSearch] = useState('');
+  //state for storing chat messages
+  const [messagelist, setMessagelist] = useState([]);
+  const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(false);
-  
+
   useEffect(() => {
     // console.log("UseEffect Calling !!!");
   }, []);
-
-  const handleChange = (event) => {
-    setSearch(event.target.value);
-    console.log("value is:", event.target.value);
-  };
 
   async function fetchChat() {
     try {
       const response = await fetch(base_url + search);
       const data = await response.json();
-      setchat(data);
-      console.log("Your Search API is :" + base_url + search);
+      setSearch(data);
+      createNewChatItem();
+      console.log(messagelist.length);
+      // console.log("Your Search API is :" + base_url + search);
       // console.log("Your Search Parameter is :" + search);
       if (response.ok) {
         setLoading(false);
@@ -32,56 +32,42 @@ const Searchquery = () => {
     }
   }
 
- 
+  function createNewChatItem() {
+    if (search !== "") {
+      const item = { text: search };
+      const tempArray = [...messagelist];
+      setMessagelist(tempArray);
+      console.log(messagelist);
+    }
+  }
+
   return (
     <>
       <div className="Search_queries">
         <div className="query_items">
-          <ul className="query_listing_ul" key={chat.id}>
-            <li className="query_q">
-              <div className="results "> Searh Question </div>
-            </li>
-            <li className="query_a output">
-              <div className="results">
-             
-                <p className="typewriter">{chat.name}</p>
-               
-                <p>{chat.completed ? "Yes" : ""}</p>
-              </div>
-            </li>
-          </ul>
+          <Chat list={search} />
         </div>
         <div className="search_field">
-          {loading ? (
-            <div className="chat_wrapper">
-              <div className="chat_container">
-                <div className="chat_container_swing_balls">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </div>
-              </div>
-            </div>
-          ) : (
-            <></>
-          )}
+          {loading ? <Loader /> : <></>}
           <input
             id="search"
             label="Search Data"
             className="input_field"
             type="text"
             placeholder="Enter Your Query Here..."
-            onChange={handleChange}
+            onChange={(e) => {
+              setSearch(e.currentTarget.value);
+            }}
             value={search}
           />
           <button
             className="btn btn_send"
             type="button"
             onClick={() => {
-              setSearch('');
+              setSearch("");
               setLoading(true);
-              // console.log("OnCickButton !!!");
               fetchChat();
+              // createNewChatItem();
             }}
           >
             <span className="icon_send">

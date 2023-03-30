@@ -153,6 +153,7 @@
   height: calc(100% - 100px);
   overflow-y: auto;
   margin-bottom: 54px;
+  color: #FFF;
 }
 
 .chat_wrapper {
