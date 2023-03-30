@@ -31,6 +31,7 @@
  --border-line:#0097ac;
  --black:#000;
  --border-black:#424242;
+ --bg-highlight:#222f3a;
 }
 
 html,body,#root,.App{

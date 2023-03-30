@@ -19,12 +19,12 @@
 .sidebar {
   position: fixed;
   width: var(--sidebar-width);
-  background: var( --black);
+  background: var(--black);
   z-index: 12;
   left: 0px;
   top: 0px;
   height: 100%;
-  border-right:1px solid var(--border-black);
+  border-right: 1px solid var(--border-black);
 }
 
 .sidebar_Logo {
@@ -33,14 +33,16 @@
   padding: 12px;
   border-bottom: 1px solid var(--border-black);
 }
+
 .sidebar_Logo a {
   display: block;
   width: 50px;
   height: 50px;
   margin: 0px auto;
 }
+
 .sidebar_Logo a svg {
-  width:100%;
+  width: 100%;
   height: 100%;
 }
 
@@ -48,7 +50,8 @@
   padding: 14px 12px;
   transition: all .5s ease-in-out;
 }
-.icon_chat{
+
+.icon_chat {
   background: url("../src/assets/icons/logo-cora.svg") no-repeat center center #FFF;
   display: inline-block;
   width: 24px;
@@ -199,7 +202,7 @@
 code {
   border-right: .15em solid #FFF;
   animation: typing 3.5s steps(30, end),
-  blink-caret .5s step-end infinite;
+    blink-caret .5s step-end infinite;
 }
 
 .query_listing_ul {
@@ -208,42 +211,61 @@ code {
 
 .query_listing_ul li {
   margin: 5px 0px;
-  color:var(--white);
+  color: var(--white);
 
-  padding:15px 82px;
+  padding: 15px 82px;
 }
+
 .query_listing_ul li .results {
   position: relative;
-  padding:8px 0px 0px 45px;
+  padding: 8px 0px 0px 45px;
 }
-.query_listing_ul li .results:before{
-  content:'';
+
+.query_listing_ul li .results p {
+  margin: 0px;
+}
+
+.query_listing_ul li .results:before {
+  content: '';
   position: absolute;
-  left:0px;
-  top:0px;
+  left: 0px;
+  top: 0px;
   width: 30px;
   height: 30px;
   border-radius: 2px;
- 
+
 }
+
 .query_listing_ul li.query_q {
   font-weight: 700;
   font-size: 14px;
 }
+
 .query_listing_ul li.query_q .results:before {
-  background:#95a3a3;
+  content: attr(data-id);
+  background-color: #c2c0c0;
+  color: #000;
+  text-align: center;
+  line-height: 30px;
+  font-weight: 800;
+  font-size: 14px;
 }
-.query_listing_ul li.query_a .results{
+
+.query_listing_ul li.query_a .results {
   font-family: monospace;
   color: var(--white);
   font-size: 12px;
   display: inline-block;
 }
-.query_listing_ul li.query_a .results:before{
+
+.query_listing_ul li.query_a .results:before {
   background: url("../src/assets/icons/logo-cora.svg") no-repeat center center var(--sidebar-bg);
   background-size: 68%;
 }
-.query_listing_ul li.output {}
+
+.query_listing_ul li.output {
+  background: var(--bg-highlight);
+}
 
 @keyframes tp-bounce {
   0% {
@@ -262,21 +284,34 @@ code {
 
 /* The typing effect */
 @keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
+  from {
+    width: 0
+  }
+
+  to {
+    width: 100%
+  }
 }
 
 /* The typewriter cursor effect */
 @keyframes blink-caret {
-  from, to { background: transparent }
-  50% { background: #FFF }
+
+  from,
+  to {
+    background: transparent
+  }
+
+  50% {
+    background: #FFF
+  }
 }
 
 /* Animation */
-.anim-typewriter{
+.anim-typewriter {
   animation: typewriter 4s steps(44) 1s 1 normal both,
-             blinkTextCursor 500ms steps(44) infinite normal;
+    blinkTextCursor 500ms steps(44) infinite normal;
 }
+
 .typewriter {
   overflow: hidden;
   white-space: nowrap;
@@ -286,14 +321,33 @@ code {
   animation-duration: 2s;
   animation-timing-function: steps(25, end);
   animation-iteration-count: 1;
-  margin:0px;
+  margin: 0px;
 }
-.typewriter:after{
-  content:'';
+
+.typewriter:after {
+  content: '';
   position: absolute;
-  right:0px;
+  right: 0px;
   width: 2px;
   height: 100%;
   background: #FFF;
   animation: blinkTextCursor 500ms steps(44) infinite normal;
+}
+
+
+.query_items::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #f4f4f4;
+}
+
+.query_items::-webkit-scrollbar {
+  width:6px;
+  background-color: transparent;
+}
+
+.query_items::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+  background-color: #222f3a;
 }

@@ -11,41 +11,34 @@ const Searchquery = () => {
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    // console.log("UseEffect Calling !!!");
-  }, []);
-
   async function fetchChat() {
     try {
       const response = await fetch(base_url + search);
       const data = await response.json();
-      setSearch(data);
-      createNewChatItem();
-      console.log(messagelist.length);
+      console.log(data);
+      const chatObj = { question: search, answer: data.name };
+      const tempArray = [...messagelist];
+      tempArray.push(chatObj);
+      setMessagelist([...tempArray]);
       // console.log("Your Search API is :" + base_url + search);
       // console.log("Your Search Parameter is :" + search);
       if (response.ok) {
         setLoading(false);
+        setSearch("");
       }
     } catch (error) {
       console.log(error);
     }
   }
 
-  function createNewChatItem() {
-    if (search !== "") {
-      const item = { text: search };
-      const tempArray = [...messagelist];
-      setMessagelist(tempArray);
-      console.log(messagelist);
-    }
-  }
 
   return (
     <>
       <div className="Search_queries">
         <div className="query_items">
-          <Chat list={search} />
+        {messagelist.map((message,index) => (
+            <Chat key={index} question={message.question} answer={message.answer} />
+          ))}
         </div>
         <div className="search_field">
           {loading ? <Loader /> : <></>}
