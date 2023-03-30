@@ -282,7 +282,7 @@ code {
   display: inline-block;
   position: relative;
   animation: typing;
-  animation-duration: 20s;
+  animation-duration: 2s;
   animation-timing-function: steps(25, end);
   animation-iteration-count: 1;
   margin:0px;

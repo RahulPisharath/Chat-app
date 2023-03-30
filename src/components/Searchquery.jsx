@@ -1,18 +1,13 @@
 import React, { useState, useEffect } from "react";
-// import { useParams } from "react-router-dom";
-// import {BASE_API_URL,API_KEY} from '../constants/utils';
 
-const base_url = "https://fakestoreapi.com/products";
-const base_url1 = "https://www.googleapis.com/customsearch/v1?key=AIzaSyCK_JR1D2rPtQy6XtTdiHIorQFSaYaQFOw&cx=017576662512468239146:omuauf_lfve&q=cars";
+
+const base_url = "https://jsonplaceholder.typicode.com/users/";
 const Searchquery = () => {
 
   const [chat, setchat] = useState([]);
   const [search, setSearch] = useState('');
   const [loading, setLoading] = useState(false);
- 
-  // const params = useParams();
-  // const { searhQuery } = params;
-
+  
   useEffect(() => {
     // console.log("UseEffect Calling !!!");
   }, []);
@@ -24,11 +19,11 @@ const Searchquery = () => {
 
   async function fetchChat() {
     try {
-      const response = await fetch(base_url);
+      const response = await fetch(base_url + search);
       const data = await response.json();
-      setchat(Array.from(data)[4]);
-      // const abc = data[0].description;
-      // console.log(abc);
+      setchat(data);
+      console.log("Your Search API is :" + base_url + search);
+      // console.log("Your Search Parameter is :" + search);
       if (response.ok) {
         setLoading(false);
       }
@@ -49,7 +44,7 @@ const Searchquery = () => {
             <li className="query_a output">
               <div className="results">
              
-                <p className="typewriter">{chat.title}</p>
+                <p className="typewriter">{chat.name}</p>
                
                 <p>{chat.completed ? "Yes" : ""}</p>
               </div>

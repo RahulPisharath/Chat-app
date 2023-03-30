@@ -14,7 +14,7 @@ export const Sidebar = () => {
         </a>
       </div>
       <div className="sidebar_query">
-        <ul className="sidebar_query_ul">
+        {/* <ul className="sidebar_query_ul">
           <li>
             <a href="#">
               <span className="icon_chat"></span>
@@ -30,7 +30,7 @@ export const Sidebar = () => {
             <span className="icon_chat"></span>
               New Query Question3</a>
           </li>
-        </ul>
+        </ul> */}
       </div>
       <div className="sidebar_action"></div>
     </div>
