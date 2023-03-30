@@ -48,12 +48,20 @@
   padding: 14px 12px;
   transition: all .5s ease-in-out;
 }
+.icon_chat{
+  background: url("../src/assets/icons/logo-cora.svg") no-repeat center center #FFF;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
 
 .sidebar_query_ul>li>a {
   display: block;
   color: var(--white);
   text-decoration: none;
-  display: block;
+  display: flex;
+  align-items: center;
   font-size: var(--link-text-font);
 }
 
@@ -228,6 +236,7 @@ code {
   font-family: monospace;
   color: var(--white);
   font-size: 12px;
+  display: inline-block;
 }
 .query_listing_ul li.query_a .results:before{
   background: url("../src/assets/icons/logo-cora.svg") no-repeat center center var(--sidebar-bg);
@@ -258,8 +267,8 @@ code {
 
 /* The typewriter cursor effect */
 @keyframes blink-caret {
-  from, to { border-color: transparent }
-  50% { border-color: #FFF }
+  from, to { background: transparent }
+  50% { background: #FFF }
 }
 
 /* Animation */
@@ -279,14 +288,11 @@ code {
   margin:0px;
 }
 .typewriter:after{
-  /* content:'';
+  content:'';
   position: absolute;
   right:0px;
   width: 2px;
   height: 100%;
   background: #FFF;
-  animation: blink-caret;
-  animation-duration: 20s;
-  animation-timing-function: steps(25, end);
-  animation-iteration-count: infinite; */
+  animation: blinkTextCursor 500ms steps(44) infinite normal;
 }
