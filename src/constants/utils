@@ -1,0 +1,6 @@
+export const BASE_API_URL = 'https://www.googleapis.com/customsearch/v1?key=';
+export const API_KEY = 'AIzaSyCK_JR1D2rPtQy6XtTdiHIorQFSaYaQFOw';
+
+//GET https://www.googleapis.com/customsearch/v1?key={API_KEY}&cx=017576662512468239146:omuauf_lfve&q={Search_query}
+
+
