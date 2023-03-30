@@ -16,13 +16,19 @@ export const Sidebar = () => {
       <div className="sidebar_query">
         <ul className="sidebar_query_ul">
           <li>
-            <a href="#">New Query Question1</a>
+            <a href="#">
+              <span className="icon_chat"></span>
+              New Query Question1</a>
           </li>
           <li>
-            <a href="#">New Query Question2</a>
+            <a href="#">
+            <span className="icon_chat"></span>
+              New Query Question2</a>
           </li>
           <li>
-            <a href="#">New Query Question3</a>
+            <a href="#">
+            <span className="icon_chat"></span>
+              New Query Question3</a>
           </li>
         </ul>
       </div>
