@@ -53,6 +53,7 @@ const Searchquery = () => {
             className="input_field"
             type="text"
             placeholder="Enter Your Query Here..."
+            tabindex="0"
             onChange={(e) => {
               setSearch(e.currentTarget.value);
             }}

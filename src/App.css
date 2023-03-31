@@ -252,7 +252,7 @@ code {
   font-size: 14px;
 }
 
-.query_listing_ul li.query_a .results {
+.query_listing_ul li.query_a .results,h1.react-typewriter-text {
   font-family: monospace;
   color: var(--white);
   font-size: 12px;
