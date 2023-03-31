@@ -218,7 +218,8 @@ code {
 
 .query_listing_ul li .results {
   position: relative;
-  padding: 8px 0px 0px 45px;
+  padding: 0px 8px 0px 45px;
+  min-height: 30px;
 }
 
 .query_listing_ul li .results p {

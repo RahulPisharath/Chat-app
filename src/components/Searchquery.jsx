@@ -31,6 +31,11 @@ const Searchquery = () => {
     }
   }
 
+  const handleKeyPress = e => {
+    if (e.key === "Enter") {
+      fetchChat();
+    }
+  };
 
   return (
     <>
@@ -51,6 +56,7 @@ const Searchquery = () => {
             onChange={(e) => {
               setSearch(e.currentTarget.value);
             }}
+            onKeyPress={handleKeyPress} 
             value={search}
           />
           <button
