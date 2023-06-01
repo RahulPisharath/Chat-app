@@ -22,9 +22,8 @@ const Forgotpassword = () => {
                 </div>
                 <button
                     type="button"
-                    className="btn btn-primary btn-block w-100 mb-3"
-                >
-                    Continue
+                    className="btn btn-primary btn-block w-100 mb-3">
+                        <Link to='/chat'> Continue</Link>
                 </button>
                 </form>
             </div>

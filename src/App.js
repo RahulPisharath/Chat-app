@@ -9,7 +9,8 @@ import Forgotpassword from "./components/Forgotpassword";
 
 export default function App() {
   let element = useRoutes([
-    {path: '/', element: <Body/>},
+    {path: '/', element: <Login />},
+    {path: '/chat', element: <Body />},
     {path: '/login', element: <Login />},
     {path:'/signup', element:<SignUp/>},
     {path:'/forgotpassword', element:<Forgotpassword/>}

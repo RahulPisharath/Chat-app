@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import "../App.css";
+
 const Login = () => {
+     
 return (
     <div className="bg-grey">
     <div className="d-flex h-full items-center justify-center">
@@ -29,9 +31,13 @@ return (
                         type="text"
                         className="form-control"
                         placeholder="Password"/>
-                </div><button
+                </div>
+                
+                <button
                     type="button"
-                    className="btn btn-primary btn-block w-100 mb-3">LOGIN</button>
+                    className="btn btn-primary btn-block w-100 mb-3">
+                        <Link to='/chat'>Click Me</Link>
+                        </button>
                 <div className="d-flex justify-space ft-12 mb-3">
                     <div>
                         <input

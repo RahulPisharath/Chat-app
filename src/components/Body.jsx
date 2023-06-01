@@ -5,9 +5,7 @@ import Searchquery from "../components/Searchquery";
 const Body = () => {
   return (
     <>
-      <div className="content_wrapper">
         <Searchquery />
-      </div>
     </>
   );
 };
